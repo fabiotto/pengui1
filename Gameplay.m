@@ -27,7 +27,7 @@
     
 }
 
-//static const float MIN_SPEED = 5.f;
+static const float MIN_SPEED = 5.f;
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
     // tell this scene to accept touches
@@ -175,7 +175,6 @@
     CGPoint force = ccpMult(launchDirection, 8000);
     [penguin.physicsBody applyForce:force];
     
-    
 
     /*// ensure followed object is in visible are when starting
     self.position = ccp(0, 0);
@@ -187,8 +186,7 @@
     /* self.position = ccp(0, 0);
      CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
      [_contentNode runAction:follow];}*/
- 
-    - (void)update:(CCTime)delta
+      - (void)update:(CCTime)delta
      {
      //if (_currentPenguin.launched)
      // if speed is below minimum speed, assume this attempt is over
@@ -211,6 +209,8 @@
      return;
       }
     }
+
+ 
 }
    
  
