@@ -11,7 +11,7 @@
 
 #import "Gameplay.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
-//#import "Penguin.h"
+#import "Penguin.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -187,9 +187,10 @@
     /* self.position = ccp(0, 0);
      CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
      [_contentNode runAction:follow];}*/
- - (void)update:(CCTime)delta
-     
-     //if (_currentPenguin.launched) {
+ 
+    - (void)update:(CCTime)delta
+     {
+     //if (_currentPenguin.launched)
      // if speed is below minimum speed, assume this attempt is over
      if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
      [self nextAttempt];
