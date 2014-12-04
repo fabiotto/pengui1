@@ -161,7 +161,7 @@ static const float MIN_SPEED = 5.f;
     }
 }
      //lancio effettivo di prima
-- (void)launchPenguin {
+/*- (void)launchPenguin {
     // loads the Penguin.ccb we have set up in Spritebuilder
     CCNode* penguin = [CCBReader load:@"Penguin"];
     // position the penguin at the bowl of the catapult
@@ -173,7 +173,7 @@ static const float MIN_SPEED = 5.f;
     // manually create & apply a force to launch the penguin
     CGPoint launchDirection = ccp(1, 0);
     CGPoint force = ccpMult(launchDirection, 8000);
-    [penguin.physicsBody applyForce:force];
+    [penguin.physicsBody applyForce:force];*/
     
 
      //ensure followed object is in visible are when starting
@@ -183,10 +183,10 @@ static const float MIN_SPEED = 5.f;
     
     
     // ensure followed object is in visible are when starting
-    self.position = ccp(0, 0);
+   /* self.position = ccp(0, 0);
      CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
      [_contentNode runAction:follow];
-      }
+      }*/
 - (void)update:(CCTime)delta
      {
      //if (_currentPenguin.launched)
