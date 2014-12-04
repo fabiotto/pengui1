@@ -98,9 +98,12 @@
         _currentPenguin.physicsBody.allowsRotation = TRUE;
         
         // follow the flying penguin
-        CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
-        [_contentNode runAction:follow];
+        /*CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
+        [_contentNode runAction:follow];*/
         
+        // follow the flying penguin
+        _followPenguin = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
+        [_contentNode runAction:_followPenguin];
     }
 }
 - (void)retry {
@@ -124,16 +127,16 @@
     
     
     
-    [seal removeFromParent];
+    //[seal removeFromParent];
 }
-/*- (void)nextAttempt {
+- (void)nextAttempt {
  _currentPenguin = nil;
  [_contentNode stopAction:_followPenguin];
  
  CCActionMoveTo *actionMoveTo = [CCActionMoveTo actionWithDuration:1.f position:ccp(0, 0)];
  [_contentNode runAction:actionMoveTo];
  
- }*/
+ }
 
 
 -(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -157,7 +160,7 @@
         } key:nodeA];
     }
 }
-//lancio effettivo di prima
+     //lancio effettivo di prima
 - (void)launchPenguin {
     // loads the Penguin.ccb we have set up in Spritebuilder
     CCNode* penguin = [CCBReader load:@"Penguin"];
@@ -173,7 +176,7 @@
     [penguin.physicsBody applyForce:force];
     
     
-    
+
     /*// ensure followed object is in visible are when starting
     self.position = ccp(0, 0);
     CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
@@ -184,9 +187,7 @@
     /* self.position = ccp(0, 0);
      CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
      [_contentNode runAction:follow];}*/
-    
-    /*
-     - (void)update:(CCTime)delta
+ - (void)update:(CCTime)delta
      
      //if (_currentPenguin.launched) {
      // if speed is below minimum speed, assume this attempt is over
@@ -207,7 +208,9 @@
      if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
      [self nextAttempt];
      return;
-     // }*/
-    //}
+      }
+    }
 }
+   
+ 
 @end
